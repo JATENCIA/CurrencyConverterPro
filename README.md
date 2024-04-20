@@ -21,13 +21,9 @@ the [ExchangeRate-API](https://v6.exchangerate-api.com/v6/) to fetch accurate an
 ![Menu](img/option_menu.png)
 
 ### View Currency Values
-<h4>
   
   This option allows users to view the current values of different available currencies. It provides an overview of the
   most recent exchange rates.
-  
-</h4>
-
 
 ![Currency Exchange Rates](img/currency_exchange_rates.png)
 
@@ -35,12 +31,14 @@ the [ExchangeRate-API](https://v6.exchangerate-api.com/v6/) to fetch accurate an
 
 With this feature, users can check the specific value of a selected currency. It's useful for obtaining detailed
 information about a particular currency.
+
 ![Convert specific currency](img/currency_pair_exchange_info.png)
 
 ### Convert Currency
 
 It allows users to convert between different currencies using current exchange rates. It's a handy tool for conducting
 international financial transactions.
+
 ![Convert currency](img/currency_converter_result.png)
 
 ### Conversion History
