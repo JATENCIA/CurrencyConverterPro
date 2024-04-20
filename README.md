@@ -21,9 +21,13 @@ the [ExchangeRate-API](https://v6.exchangerate-api.com/v6/) to fetch accurate an
 ![Menu](img/option_menu.png)
 
 ### View Currency Values
+<h4>
+  
+  This option allows users to view the current values of different available currencies. It provides an overview of the
+  most recent exchange rates.
+  
+</h4>
 
-This option allows users to view the current values of different available currencies. It provides an overview of the
-most recent exchange rates.
 
 ![Currency Exchange Rates](img/currency_exchange_rates.png)
 
