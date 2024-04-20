@@ -31,12 +31,14 @@ most recent exchange rates.
 
 With this feature, users can check the specific value of a selected currency. It's useful for obtaining detailed
 information about a particular currency.
+
 ![Convert specific currency](img/currency_pair_exchange_info.png)
 
 ### Convert Currency
 
 It allows users to convert between different currencies using current exchange rates. It's a handy tool for conducting
 international financial transactions.
+
 ![Convert currency](img/currency_converter_result.png)
 
 ### Conversion History
