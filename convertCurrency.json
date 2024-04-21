@@ -1,42 +1,47 @@
 [
   {
     "baseCode": "USD",
-    "targetCode": "ARS",
-    "timeLastUpdateUtc": "Sat, 20 Apr 2024 00:00:01 +0000",
-    "timeNextUpdateUtc": "Sun, 21 Apr 2024 00:00:01 +0000",
-    "conversionRate": 864.75,
-    "conversionResult": 3.967213575E7
+    "targetCode": "COP",
+    "timeLastUpdateUtc": "Sun, 21 Apr 2024 00:00:02 +0000",
+    "timeNextUpdateUtc": "Mon, 22 Apr 2024 00:00:02 +0000",
+    "conversionRate": 3906.1426,
+    "conversionResult": 2.204783129144E8,
+    "amountConvert": 56444.0
   },
   {
-    "baseCode": "COP",
-    "targetCode": "ARS",
-    "timeLastUpdateUtc": "Sat, 20 Apr 2024 00:00:01 +0000",
-    "timeNextUpdateUtc": "Sun, 21 Apr 2024 00:00:01 +0000",
-    "conversionRate": 0.2214,
-    "conversionResult": 101572.5636
+    "baseCode": "ARS",
+    "targetCode": "GBP",
+    "timeLastUpdateUtc": "Sun, 21 Apr 2024 00:00:02 +0000",
+    "timeNextUpdateUtc": "Mon, 22 Apr 2024 00:00:02 +0000",
+    "conversionRate": 9.3144E-4,
+    "conversionResult": 73.1692692,
+    "amountConvert": 78555.0
   },
   {
-    "baseCode": "ZWL",
-    "targetCode": "NGN",
-    "timeLastUpdateUtc": "Sat, 20 Apr 2024 00:00:01 +0000",
-    "timeNextUpdateUtc": "Sun, 21 Apr 2024 00:00:01 +0000",
-    "conversionRate": 86.1241,
-    "conversionResult": 8.48677216292E7
+    "baseCode": "RON",
+    "targetCode": "QAR",
+    "timeLastUpdateUtc": "Sun, 21 Apr 2024 00:00:02 +0000",
+    "timeNextUpdateUtc": "Mon, 22 Apr 2024 00:00:02 +0000",
+    "conversionRate": 0.7791,
+    "conversionResult": 69772.3005,
+    "amountConvert": 89555.0
   },
   {
-    "baseCode": "COP",
-    "targetCode": "EUR",
-    "timeLastUpdateUtc": "Sat, 20 Apr 2024 00:00:01 +0000",
-    "timeNextUpdateUtc": "Sun, 21 Apr 2024 00:00:01 +0000",
-    "conversionRate": 2.4041E-4,
-    "conversionResult": 10.96822543
+    "baseCode": "FJD",
+    "targetCode": "AZN",
+    "timeLastUpdateUtc": "Sun, 21 Apr 2024 00:00:02 +0000",
+    "timeNextUpdateUtc": "Mon, 22 Apr 2024 00:00:02 +0000",
+    "conversionRate": 0.7481,
+    "conversionResult": 67329.0,
+    "amountConvert": 90000.0
   },
   {
-    "baseCode": "USD",
-    "targetCode": "RON",
-    "timeLastUpdateUtc": "Sat, 20 Apr 2024 00:00:01 +0000",
-    "timeNextUpdateUtc": "Sun, 21 Apr 2024 00:00:01 +0000",
-    "conversionRate": 4.6698,
-    "conversionResult": 73166.4264
+    "baseCode": "CAD",
+    "targetCode": "MUR",
+    "timeLastUpdateUtc": "Sun, 21 Apr 2024 00:00:02 +0000",
+    "timeNextUpdateUtc": "Mon, 22 Apr 2024 00:00:02 +0000",
+    "conversionRate": 33.7923,
+    "conversionResult": 3.0075147E8,
+    "amountConvert": 8900000.0
   }
 ]

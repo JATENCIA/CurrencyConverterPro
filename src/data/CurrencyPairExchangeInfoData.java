@@ -9,42 +9,54 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CurrencyPairExchangeInfoData {
 
-    public static void CurrencyPairExchange(String secretKey) throws IOException {
-        System.out.println("*****************************");
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("🪙 Enter the base currency code: ");
-        String baseCode = scanner.nextLine().toUpperCase();
-        System.out.print("💱 Enter the target currency code: ");
-        String targetCode = scanner.nextLine().toUpperCase();
-        System.out.println("*****************************");
+    public static void CurrencyPairExchange(String secretKey) {
 
-        Gson gson = new GsonBuilder()
-                .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_DASHES)
-                .setPrettyPrinting()
-                .create();
+        try {
 
-        // Setting URL
-        String url_str = "https://v6.exchangerate-api.com/v6/" + secretKey + "/pair/" + baseCode + "/" + targetCode;
+            System.out.println("*****************************");
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("🪙 Enter the base currency code: ");
+            String baseCode = scanner.nextLine().toUpperCase();
+            System.out.print("💱 Enter the target currency code: ");
+            String targetCode = scanner.nextLine().toUpperCase();
+            System.out.println("*****************************");
 
-        // Making Request
-        URL url = new URL(url_str);
-        HttpURLConnection request = (HttpURLConnection) url.openConnection();
-        request.connect();
+            Gson gson = new GsonBuilder()
+                    .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_DASHES)
+                    .setPrettyPrinting()
+                    .create();
 
-        // Convert to JSON
-        JsonParser jp = new JsonParser();
-        JsonElement root = jp.parse(new InputStreamReader((InputStream) request.getContent()));
-        JsonObject dataApi = root.getAsJsonObject();
+            // Setting URL
+            String url_str = "https://v6.exchangerate-api.com/v6/" + secretKey + "/pair/" + baseCode + "/" + targetCode;
 
-        CurrencyPairExchangeInfoRecord currencyPairExchangeInfoRecord = gson.fromJson(dataApi, CurrencyPairExchangeInfoRecord.class);
-        CurrencyPairExchangeInfoModel currencyPairExchangeInfoModel = new CurrencyPairExchangeInfoModel(currencyPairExchangeInfoRecord);
+            // Making Request
+            URL url = new URL(url_str);
+            HttpURLConnection request = (HttpURLConnection) url.openConnection();
+            request.connect();
 
-        System.out.println(" ");
-        System.out.println(currencyPairExchangeInfoModel);
+            // Convert to JSON
+            JsonParser jp = new JsonParser();
+            JsonElement root = jp.parse(new InputStreamReader((InputStream) request.getContent()));
+            JsonObject dataApi = root.getAsJsonObject();
+
+            CurrencyPairExchangeInfoRecord currencyPairExchangeInfoRecord = gson.fromJson(dataApi, CurrencyPairExchangeInfoRecord.class);
+            CurrencyPairExchangeInfoModel currencyPairExchangeInfoModel = new CurrencyPairExchangeInfoModel(currencyPairExchangeInfoRecord);
+
+            System.out.println(" ");
+            System.out.println(currencyPairExchangeInfoModel);
+
+
+        } catch (IOException e) {
+            System.out.println("Input/output error occurred. Please try again. ❌🔄");
+        } catch (Exception e) {
+            e.getMessage();
+        }
+
 
     }
 

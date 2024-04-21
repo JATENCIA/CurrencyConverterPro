@@ -4,7 +4,9 @@ import data.CurrencyPairExchangeInfoData;
 import util.HistoryConvertCurrency;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Properties;
 import java.util.Scanner;
 
@@ -41,34 +43,42 @@ public class Main {
             System.out.println("                        ╚═════════════════════════════════╝                           " + "\n");
             System.out.print("╚══════════════════════════════════════════════════════════════════════════════════════════╝" + "\n");
 
-            System.out.print("Please enter your choice: ");
-            int option = scanner.nextInt();
 
-            System.out.print("\n");
+            try {
 
-            switch (option) {
+                System.out.print("Please enter your choice: ");
+                int option = scanner.nextInt();
+                System.out.println("\n");
 
-                case 1:
-                    CurrencyConverterAPIManagerData.getExchangeRates(secretKey);
-                    break;
-                case 2:
-                    CurrencyPairExchangeInfoData.CurrencyPairExchange(secretKey);
-                    break;
-                case 3:
-                    CurrencyConverterData.currencyConverter(secretKey);
-                    break;
-                case 4:
-                    HistoryConvertCurrency.historyConvertCurrency();
-                    break;
-                case 5:
-                    System.out.println("Exiting the Currency Converter. Goodbye! 👋🌟");
-                    flag = false;
-                    break;
-                default:
-                    System.out.println("Invalid option! Please select a valid option from the menu. ❌🤔");
-                    break;
+                switch (option) {
 
+                    case 1:
+                        CurrencyConverterAPIManagerData.getExchangeRates(secretKey);
+                        break;
+                    case 2:
+                        CurrencyPairExchangeInfoData.CurrencyPairExchange(secretKey);
+                        break;
+                    case 3:
+                        CurrencyConverterData.currencyConverter(secretKey);
+                        break;
+                    case 4:
+                        HistoryConvertCurrency.historyConvertCurrency();
+                        break;
+                    case 5:
+                        System.out.println("Exiting the Currency Converter. Goodbye! 👋🌟");
+                        flag = false;
+                        break;
+                    default:
+                        System.out.println("Invalid option! Please select a valid option from the menu. ❌🤔");
+                        break;
+
+                }
+
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter an integer. ❌🔢");
+                scanner.nextLine();
             }
+
 
         }
 

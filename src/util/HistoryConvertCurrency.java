@@ -36,9 +36,12 @@ public class HistoryConvertCurrency {
             System.out.println("⏰ Last Update Time (UTC): " + convertCurrency.getTimeLastUpdateUtc());
             System.out.println("⏳ Next Update Time (UTC): " + convertCurrency.getTimeNextUpdateUtc());
             System.out.println("💱 Conversion Rate: " + convertCurrency.getConversionRate());
+            System.out.println("💶 Amount Convert: " + convertCurrency.getAmountConvert());
             System.out.println("💵 Conversion Result: " + convertCurrency.getConversionResult());
             System.out.println("--------------------------------------");
         }
         System.out.println();
     }
 }
+
+//
