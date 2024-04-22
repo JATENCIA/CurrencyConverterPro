@@ -11,7 +11,7 @@
 
 This currency conversion project allows users to access updated information on currency exchange rates, perform
 conversions between different currencies, and maintain a transaction history. It utilizes
-the [ExchangeRate-API](https://www.exchangerate-api.com/) to fetch accurate and up-to-date data on exchange rates.
+the [ExchangeRate-API](https://www.exchangerate-api.com/){:target="_blank"} to fetch accurate and up-to-date data on exchange rates.
 </h4>
 
 <div align="center">
