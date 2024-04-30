@@ -2,6 +2,7 @@ package data;
 
 import com.google.gson.*;
 import models.CurrencyConverterModel;
+import request.CurrencyNotPermitted;
 import util.SavedConvertCurrency;
 import record.CurrencyConverterRecord;
 
@@ -19,6 +20,7 @@ public class CurrencyConverterData {
 
         try {
 
+            CurrencyNotPermitted currencyNotPermitted = new CurrencyNotPermitted();
             Gson gson = new GsonBuilder()
                     .setPrettyPrinting()
                     .create();
@@ -34,32 +36,37 @@ public class CurrencyConverterData {
             System.out.println("*****************************");
 
 
-            // Setting URL
-            String url_str = "https://v6.exchangerate-api.com/v6/" + secretKey + "/pair/" + baseCode + "/" + targetCode + "/" + amountConvert;
+            boolean isExistsCurrencyBaseCode = currencyNotPermitted.isCurrencyAllowed(baseCode);
+            boolean isExistsCurrencyTargetCode = currencyNotPermitted.isCurrencyAllowed(targetCode);
 
-            // Making Request
-            URL url = new URL(url_str);
-            HttpURLConnection request = (HttpURLConnection) url.openConnection();
-            request.connect();
+            if (isExistsCurrencyBaseCode && isExistsCurrencyTargetCode) {
 
-            // Convert to JSON
-            JsonParser jp = new JsonParser();
-            JsonElement root = jp.parse(new InputStreamReader((InputStream) request.getContent()));
-            JsonObject dataApi = root.getAsJsonObject();
+                // Setting URL
+                String url_str = "https://v6.exchangerate-api.com/v6/" + secretKey + "/pair/" + baseCode + "/" + targetCode + "/" + amountConvert;
 
-            CurrencyConverterRecord currencyConverterRecord = gson.fromJson(dataApi, CurrencyConverterRecord.class);
-            CurrencyConverterModel currencyConverterModel = new CurrencyConverterModel(currencyConverterRecord , amountConvert);
+                // Making Request
+                URL url = new URL(url_str);
+                HttpURLConnection request = (HttpURLConnection) url.openConnection();
+                request.connect();
 
-            SavedConvertCurrency.savedConvertCurrency(currencyConverterModel);
+                // Convert to JSON
+                JsonParser jp = new JsonParser();
+                JsonElement root = jp.parse(new InputStreamReader((InputStream) request.getContent()));
+                JsonObject dataApi = root.getAsJsonObject();
 
-            System.out.println(" ");
-            System.out.println(currencyConverterModel);
+                CurrencyConverterRecord currencyConverterRecord = gson.fromJson(dataApi, CurrencyConverterRecord.class);
+                CurrencyConverterModel currencyConverterModel = new CurrencyConverterModel(currencyConverterRecord, amountConvert);
 
+                SavedConvertCurrency.savedConvertCurrency(currencyConverterModel);
 
+                System.out.println(" ");
+                System.out.println(currencyConverterModel);
+
+            } else {
+                System.out.println(currencyNotPermitted.getMessage());
+            }
         } catch (IOException e) {
             System.out.println("Input/output error occurred. Please try again. ❌🔄");
-        } catch (Exception e) {
-            e.getMessage();
         }
 
 

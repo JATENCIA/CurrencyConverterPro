@@ -43,5 +43,32 @@
     "conversionRate": 33.7923,
     "conversionResult": 3.0075147E8,
     "amountConvert": 8900000.0
+  },
+  {
+    "baseCode": "USD",
+    "targetCode": "COP",
+    "timeLastUpdateUtc": "Sat, 27 Apr 2024 00:00:01 +0000",
+    "timeNextUpdateUtc": "Sun, 28 Apr 2024 00:00:01 +0000",
+    "conversionRate": 3932.3173,
+    "conversionResult": 3932317.3,
+    "amountConvert": 1000.0
+  },
+  {
+    "baseCode": "SAR",
+    "targetCode": "VND",
+    "timeLastUpdateUtc": "Tue, 30 Apr 2024 00:00:01 +0000",
+    "timeNextUpdateUtc": "Wed, 01 May 2024 00:00:01 +0000",
+    "conversionRate": 6750.7922,
+    "conversionResult": 4.05047532E10,
+    "amountConvert": 6000000.0
+  },
+  {
+    "baseCode": "GBP",
+    "targetCode": "IRR",
+    "timeLastUpdateUtc": "Tue, 30 Apr 2024 00:00:01 +0000",
+    "timeNextUpdateUtc": "Wed, 01 May 2024 00:00:01 +0000",
+    "conversionRate": 53388.8428,
+    "conversionResult": 4.804995852E11,
+    "amountConvert": 9000000.0
   }
 ]

@@ -3,6 +3,7 @@ package data;
 import com.google.gson.*;
 import models.CurrencyPairExchangeInfoModel;
 import record.CurrencyPairExchangeInfoRecord;
+import request.CurrencyNotPermitted;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,6 +19,8 @@ public class CurrencyPairExchangeInfoData {
 
         try {
 
+            CurrencyNotPermitted currencyNotPermitted = new CurrencyNotPermitted();
+
             System.out.println("*****************************");
             Scanner scanner = new Scanner(System.in);
             System.out.print("🪙 Enter the base currency code: ");
@@ -31,30 +34,35 @@ public class CurrencyPairExchangeInfoData {
                     .setPrettyPrinting()
                     .create();
 
-            // Setting URL
-            String url_str = "https://v6.exchangerate-api.com/v6/" + secretKey + "/pair/" + baseCode + "/" + targetCode;
+            boolean isExistsCurrencyBaseCode = currencyNotPermitted.isCurrencyAllowed(baseCode);
+            boolean isExistsCurrencyTargetCode = currencyNotPermitted.isCurrencyAllowed(targetCode);
 
-            // Making Request
-            URL url = new URL(url_str);
-            HttpURLConnection request = (HttpURLConnection) url.openConnection();
-            request.connect();
+            if (isExistsCurrencyBaseCode && isExistsCurrencyTargetCode) {
 
-            // Convert to JSON
-            JsonParser jp = new JsonParser();
-            JsonElement root = jp.parse(new InputStreamReader((InputStream) request.getContent()));
-            JsonObject dataApi = root.getAsJsonObject();
+                // Setting URL
+                String url_str = "https://v6.exchangerate-api.com/v6/" + secretKey + "/pair/" + baseCode + "/" + targetCode;
 
-            CurrencyPairExchangeInfoRecord currencyPairExchangeInfoRecord = gson.fromJson(dataApi, CurrencyPairExchangeInfoRecord.class);
-            CurrencyPairExchangeInfoModel currencyPairExchangeInfoModel = new CurrencyPairExchangeInfoModel(currencyPairExchangeInfoRecord);
+                // Making Request
+                URL url = new URL(url_str);
+                HttpURLConnection request = (HttpURLConnection) url.openConnection();
+                request.connect();
 
-            System.out.println(" ");
-            System.out.println(currencyPairExchangeInfoModel);
+                // Convert to JSON
+                JsonParser jp = new JsonParser();
+                JsonElement root = jp.parse(new InputStreamReader((InputStream) request.getContent()));
+                JsonObject dataApi = root.getAsJsonObject();
 
+                CurrencyPairExchangeInfoRecord currencyPairExchangeInfoRecord = gson.fromJson(dataApi, CurrencyPairExchangeInfoRecord.class);
+                CurrencyPairExchangeInfoModel currencyPairExchangeInfoModel = new CurrencyPairExchangeInfoModel(currencyPairExchangeInfoRecord);
+
+                System.out.println(" ");
+                System.out.println(currencyPairExchangeInfoModel);
+            } else {
+                System.out.println(currencyNotPermitted.getMessage());
+            }
 
         } catch (IOException e) {
             System.out.println("Input/output error occurred. Please try again. ❌🔄");
-        } catch (Exception e) {
-            e.getMessage();
         }
 
 
